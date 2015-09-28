@@ -8,10 +8,10 @@ class Chisel:
         self.server_name = server_name;
         
    def start(self):
-        print 'Waiting for ' + server_name + ' server ...';
-        rospy.wait_for_service(server_name + '/' + 'Reset');
+        print 'Waiting for ' + self.server_name + ' server ...';
+        rospy.wait_for_service(self.server_name + '/' + 'Reset');
         print 'Found server.';
-        self.reset = rospy.ServiceProxy(server_name + '/' + 'Reset', chisel_msgs.ResetService);
-        self.toggle_paused = rospy.ServiceProxy(server_name + '/' + 'TogglePaused', chisel_msgs.PauseService);
-        self.save_mesh = rospy.ServiceProxy(server_name + '/' + 'SaveMesh', chisel_msgs.SaveMeshService);
-        self.get_all_chunks = rospy.ServiceProxy(server_name + '/' + 'GetAllChunks', chisel_msgs.GetAllChunksService);
+        self.reset = rospy.ServiceProxy(self.server_name + '/' + 'Reset', chisel_msgs.ResetService);
+        self.toggle_paused = rospy.ServiceProxy(self.server_name + '/' + 'TogglePaused', chisel_msgs.PauseService);
+        self.save_mesh = rospy.ServiceProxy(self.server_name + '/' + 'SaveMesh', chisel_msgs.SaveMeshService);
+        self.get_all_chunks = rospy.ServiceProxy(self.server_name + '/' + 'GetAllChunks', chisel_msgs.GetAllChunksService);
